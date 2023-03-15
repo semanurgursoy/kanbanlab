@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../static/css/register.css" th:href="@{/css/register.css}" rel="stylesheet">
+  <link href="../static/css/navbar.css" th:href="@{/css/navbar.css}" rel="stylesheet">
+  <title>Signup</title>
+
+</head>
+<body>
+<section>
+
+  <th:block th:if="${session.msg}">
+    <p>[[${session.msg}]]</p>
+    <th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+  </th:block>
+
+  <div class="navbar">
+    <ul>
+      <li><a href="#home">KanbanLab</a></li>
+      <li style="float:right;"><a th:href="@{/register}" class="active" href="#">Signup</a></li>
+      <li style="float:right;"><a th:href="@{/login}" class="active" href="#">Login</a></li>
+    </ul>
+  </div>
+
+  <div class="signup-box">
+    <form th:action="@{/register}" th:object="${userRegistrationDto}" method="post">
+      <p th:if="${error}" class="error" th:text="${error}"></p>
+      <div class="user-box">
+        <input type="text" name="email" id="name" th:field="*{name}" required="">
+        <label for="name">Name</label>
+      </div>
+
+      <div class="user-box">
+        <input type="text" name="surname" id="surname" th:field="*{surname}" required="">
+        <label for="surname">Surname</label>
+      </div>
+
+      <div class="user-box">
+        <input type="text" name="email" id="email" th:field="*{email}" required="">
+        <label for="email">Email</label>
+      </div>
+
+      <div class="user-box">
+        <input type="text" name="password" id="password" th:field="*{password}" required="">
+        <label for="password">Password</label>
+      </div>
+
+      <div class="user-box">
+        <input type="text" name="matchPassword" id="matchPassword" th:field="*{matchPassword}" required="">
+        <label for="matchPassword">Password Again</label>
+      </div>
+      <a th:href="@{/login}" class="fp">Login</a>
+      <input type="submit" value="Signup">
+    </form>
+  </div>
+
+
+
+
+</section>
+
+</body>
+</html>

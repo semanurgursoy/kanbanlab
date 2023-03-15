@@ -1,0 +1,136 @@
+html {
+  height: 100%;
+}
+body {
+  margin:0;
+  padding:0;
+  font-family: sans-serif;
+  background-color: #F1F6F9;
+}
+
+.login-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: #394867;
+  box-sizing: border-box;
+  /*box-shadow: 0 15px 25px rgba(0,0,0,.6);*/
+  border-radius: 10px;
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: white;
+  font-size: 12px;
+}
+
+div.login-box form input[type=submit] {
+  background: transparent;
+  border: none;
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  letter-spacing: 4px
+}
+
+  /*.login-box form a:first-child*/
+div.login-box form a.fp{
+  position: relative;
+  display: inline-block;
+  padding: 1.5px;
+  color: white;
+  font-size: 8px;
+  text-decoration: underline;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 5px;
+  letter-spacing: 2px;
+}
+
+.login-box input:hover[type="submit"]  {
+  cursor: pointer;
+  background: #9BA4B4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #394867,
+              0 0 20px #F1F6F9;
+}
+
+div.login-box form a.fp:hover{
+  background: #9BA4B4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: none;
+}
+
+.error {
+  text-transform: uppercase;
+  color: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

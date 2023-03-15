@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="ISO-8859-1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet">
+  <link href="../static/css/navbar.css" th:href="@{/css/navbar.css}" rel="stylesheet">
+  <title>Login</title>
+
+</head>
+<body>
+
+<section>
+  <div class="navbar">
+    <ul>
+      <li><a href="#home">KanbanLab</a></li>
+      <li style="float:right;"><a th:href="@{/register}" class="active" href="#">Signup</a></li>
+      <li style="float:right;"><a th:href="@{/login}" class="active" href="#">Login</a></li>
+    </ul>
+  </div>
+
+
+  <div class="login-box">
+    <form th:action="@{/home}" th:object="${loginDtoForm}" method="post">
+      <p th:if="${error}" class="error" th:text="${error}"></p>
+      <div class="user-box">
+        <input type="text" name="email" id="email" required="">
+        <label for="email">Email</label>
+      </div>
+      <div class="user-box">
+        <input type="text" name="password" id="password" required="">
+        <label for="password">Password</label>
+      </div>
+      <a href="#" class="fp">Forgot Password</a>
+      <a th:href="@{/register}" class="fp">Signup</a>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+</section>
+
+</body>
+</html>

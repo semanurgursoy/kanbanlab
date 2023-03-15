@@ -1,0 +1,305 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /*background: linear-gradient(#ECDFC8, #FCF8E8);*/
+    background-color: #F1F6F9;
+}
+
+.header {
+    background-color: cadetblue;
+    padding: 5px;
+}
+
+.row {
+    display: flex;
+}
+
+.row-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.column {
+    padding: 10px;
+}
+
+.column.side {
+    flex: 1;
+}
+
+.column.side.left i{
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+}
+
+.column.side.right i{
+  position: absolute;
+  top: 50%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+}
+
+
+.column.side.left a{
+  background: #394867;
+  border: none;
+  display: inline-block;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 5px 5px;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 8px;
+  letter-spacing: 4px
+}
+
+.column.side.left a:hover{
+  cursor: pointer;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #14274E,
+              0 0 10px #F1F6F9;
+}
+
+
+
+.column.middle {
+    flex: 5;
+}
+
+.card-container {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.card-header{
+    width: 30%;
+    max-width: 75%;
+    height: 50px;
+    line-height: 50px;
+    border: none;
+    border-radius: 8px;
+    margin: 10px;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 5px;
+    font-family: 'Caveat';
+    color: white;
+    text-align: center;
+    background-color: #394867;
+}
+
+.card{
+    width: 275px;
+    height: 185px;
+    border: .5px solid;
+    margin: 0px 10px 10px 10px;
+    border-radius: 5px;
+    background-color: #C7CBD2;
+}
+
+.card:hover{
+    cursor: pointer;
+}
+
+.card p:first-child{
+    display: block;
+    font-weight: bold;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.card .calendar-cont{
+    font-style: italic;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    line-height: 0px;
+}
+
+.task-users{
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+
+}
+
+div.task-users div.user{
+    color: black;
+    padding: 5px;
+
+}
+
+.card-name{
+    width: 90%;
+    display: inline-block;
+}
+
+.check{
+    display: inline-block;
+    float: right;
+    color: green;
+    margin: 1px;
+}
+
+
+.footer {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+}
+
+.cards-preview{
+   position: fixed;
+   top:0; left:0;
+   min-height: 100vh;
+   width: 100%;
+   background: rgba(0,0,0,.8);
+   display: none;
+   align-items: center;
+   justify-content: center;
+}
+
+.cards-preview .preview{
+   /*display: none;*/
+   padding:1.5rem;
+   text-align: center;
+   background: #fff;
+   position: relative;
+   margin:2rem;
+   width: 40rem;
+}
+
+.cards-preview .preview.active{
+   display: inline-block;
+   background-color: white;
+}
+
+.cards-preview .preview .fa-close{
+   position: absolute;
+   top:1rem; right:1.5rem;
+   cursor: pointer;
+   color:#444;
+   font-size: 4rem;
+}
+
+.cards-preview .preview .fa-close:hover{
+   transform: rotate(90deg);
+}
+
+.cards-preview .preview h3{
+   color:#444;
+   padding: .1rem 0;
+   font-size: 1.5rem;
+   border-bottom: 1px solid #14274E;
+}
+
+.cards-preview .preview p{
+   text-align: left;
+}
+
+.cards-preview .preview .calendar-cont{
+    font-style: italic;
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    line-height: 3px;
+    margin: 10px;
+}
+
+.cards-preview .preview .leader{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    line-height: 5px;
+    margin: 10px;
+}
+
+.cards-preview .preview .update{
+    display: inline-block;
+    margin: 30px;
+}
+
+.cards-preview .preview .update:hover{
+   color: grey;
+   cursor: pointer;
+}
+
+.cards-preview .preview .buttons a.buy:hover{
+   background: #444;
+   color:#fff;
+}
+
+
+
+
+.dropdown {
+  display: block;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 15px;
+  outline: none;
+  color: white;
+  background-color: inherit;
+  font-family: inherit;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .5s;
+  letter-spacing: 2px;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background: #BA4B4;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #F1F6F9;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #14274E;
+  color: black;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.navbar li .dropdown .dropdown-content a:hover {
+  background-color: white;
+  color: black;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media (max-width: 800px) {
+    .row-list {
+        -webkit-flex-direction: column;
+        flex-direction: column;
+    }
+}
