@@ -4,9 +4,9 @@ let previewBox = preveiwContainer.querySelectorAll('.preview');
 document.querySelectorAll('.card-container .card').forEach(card =>{
   card.onclick = () =>{
     preveiwContainer.style.display = 'flex';
-    let name = card.getAttribute('data-name');
+    let name = card.getAttribute('id');
     previewBox.forEach(preview =>{
-      let target = preview.getAttribute('data-target');
+      let target = preview.getAttribute('target');
       if(name == target){
         preview.classList.add('active');
       }

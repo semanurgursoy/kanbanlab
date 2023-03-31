@@ -11,18 +11,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 
-@Service
 @RequiredArgsConstructor
+@Service
 public class UserDetailService {
     private final UserService userService;
 
     public UserDetails findUserByEmail(String email){
-        /*return APPLICATION_USERS
-                .stream()
-                .filter(u -> u.getUsername().equals(email))
-                .findFirst()
-                .orElseThrow(() -> new UsernameNotFoundException("No user was found"));*/
-
         User user = userService.findUserByEmail(email);
         GrantedAuthority authority = getUserAuthority(user.getRole());
         return buildUserForAuthentication(user, authority);
@@ -35,10 +29,9 @@ public class UserDetailService {
 
     private UserDetails buildUserForAuthentication(User user, GrantedAuthority authority) {
         return new org.springframework.security.core.userdetails.User(
-                user.getName(),
+                user.getEmail(),
                 user.getPassword(),
                 Collections.singleton(authority));
     }
-
 
 }

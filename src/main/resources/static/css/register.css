@@ -54,6 +54,11 @@ html {
     transition: .5s;
   }
 
+  .signup-box .user-box p {
+    font-size:15px;
+    color: #FF1C19;
+  }
+
   .signup-box .user-box input:focus ~ label,
   .signup-box .user-box input:valid ~ label {
     top: -20px;

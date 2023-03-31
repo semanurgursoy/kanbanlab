@@ -1,12 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="ISO-8859-1">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
   <link href="../static/css/login.css" th:href="@{/css/login.css}" rel="stylesheet">
   <link href="../static/css/navbar.css" th:href="@{/css/navbar.css}" rel="stylesheet">
   <title>Login</title>
-
 </head>
 <body>
 
@@ -19,16 +18,24 @@
     </ul>
   </div>
 
-
+<!--
+  <div align="center" th:if="${param.error}">
+    <p class="warn">email or password invalid, please verify</p>
+  </div>
+-->
   <div class="login-box">
-    <form th:action="@{/home}" th:object="${loginDtoForm}" method="post">
-      <p th:if="${error}" class="error" th:text="${error}"></p>
+
+    <form class="form-horizontal"
+          method="post"
+          role="form"
+          th:action="@{/login}"
+    >
       <div class="user-box">
-        <input type="text" name="email" id="email" required="">
-        <label for="email">Email</label>
+        <input type="email" name="username" id="username">
+        <label for="password">Email</label>
       </div>
       <div class="user-box">
-        <input type="text" name="password" id="password" required="">
+        <input type="password" name="password" id="password">
         <label for="password">Password</label>
       </div>
       <a href="#" class="fp">Forgot Password</a>
@@ -40,3 +47,6 @@
 
 </body>
 </html>
+
+
+

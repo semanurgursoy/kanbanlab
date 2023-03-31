@@ -1,4 +1,4 @@
-package com.kanban.kanbanlab.webApi.controllers;
+package com.kanban.kanbanlab.webApi.controllers.rest;
 
 import com.kanban.kanbanlab.business.abstracts.CardService;
 import com.kanban.kanbanlab.entities.concretes.Card;

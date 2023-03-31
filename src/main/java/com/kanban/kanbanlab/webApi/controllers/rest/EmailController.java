@@ -1,4 +1,4 @@
-package com.kanban.kanbanlab.webApi.controllers;
+package com.kanban.kanbanlab.webApi.controllers.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.kanban.kanbanlab.entities.concretes.EmailDetails;

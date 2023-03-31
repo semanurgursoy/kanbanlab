@@ -4,9 +4,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 public class BusinessRules {
-    public static ResponseEntity<String> Run(ResponseEntity<String>...states)
+    public static ResponseEntity<?> Run(ResponseEntity<?>...states)
     {
-        for(ResponseEntity<String> state:states)
+        for(ResponseEntity<?> state:states)
         {
             if (!state.getStatusCode().equals(HttpStatus.OK))
             {

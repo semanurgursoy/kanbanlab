@@ -1,31 +1,56 @@
 package com.kanban.kanbanlab.webApi.controllers;
 
-import com.kanban.kanbanlab.business.abstracts.AuthService;
-import com.kanban.kanbanlab.business.abstracts.UserService;
-import com.kanban.kanbanlab.business.config.JwtUtils;
-import com.kanban.kanbanlab.business.config.UserDetailService;
-import com.kanban.kanbanlab.entities.concretes.Card;
-import com.kanban.kanbanlab.entities.concretes.User;
-import com.kanban.kanbanlab.entities.dto.LoginDto;
+import com.kanban.kanbanlab.business.concretes.AuthManager;
 import com.kanban.kanbanlab.entities.dto.SignUpDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 public class Auth2Controller {
+    @Autowired
+    private final AuthManager authManager;
 
+    @RequestMapping("/login")
+    public String loginForm() {
+        return "login";
+    }
+
+    @GetMapping("/register")
+    public String registrationForm(Model model) {
+        SignUpDto user = new SignUpDto();
+        model.addAttribute("userRegistrationDto", user);
+        return "register";
+    }
+
+    @PostMapping("/register")
+    public String registration(
+            @Valid @ModelAttribute("userRegistrationDto") SignUpDto signUpDto, BindingResult result, Model model) {
+
+        ResponseEntity response = authManager.register(signUpDto, "user");
+        if(response.getStatusCode() != HttpStatus.OK){
+            List<String> msg = (ArrayList<String>)response.getBody();
+            result.rejectValue(msg.get(0), null, msg.get(1));
+            model.addAttribute("user", signUpDto);
+            return "/register";
+        }
+        return "redirect:/register?success";
+    }
+
+    /*
     private final AuthenticationManager authenticationManager;
     private final UserDetailService userDetailService;
     private final JwtUtils jwtUtils;
@@ -87,6 +112,6 @@ public class Auth2Controller {
         model.addAttribute("user", registeredUser);
         model.addAttribute(jwtUtils.generateToken(userDetails));
         return "home";
-    }
+    }*/
 
 }

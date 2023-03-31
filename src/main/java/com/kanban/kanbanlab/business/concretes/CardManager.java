@@ -32,6 +32,9 @@ public class CardManager implements CardService {
     @Override
     public List<User> getUsersByCardId(int id) { return cardRepository.findById(id).getCardUsers(); }
 
+    @Override
+    public Card getByCardId(int id){ return cardRepository.findById(id); }
+
 
     @Override
     public void add(Card card) {

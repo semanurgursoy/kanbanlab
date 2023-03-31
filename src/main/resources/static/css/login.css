@@ -54,6 +54,11 @@ body {
   transition: .5s;
 }
 
+.login-box .user-box .warn {
+  font-size:15px;
+  color: #FF1C19;
+}
+
 .login-box .user-box input:focus ~ label,
 .login-box .user-box input:valid ~ label {
   top: -20px;

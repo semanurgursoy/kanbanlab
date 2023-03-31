@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Table(name="roles")
 @Data
@@ -17,4 +18,8 @@ public class Role {
     private int id;
     @Column(name="role")
     private String role;
+
+    public Role(String role) {
+        this.role = role;
+    }
 }

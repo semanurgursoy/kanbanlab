@@ -4,8 +4,12 @@ import com.kanban.kanbanlab.business.abstracts.UserService;
 import com.kanban.kanbanlab.dataAccess.abstracts.RoleRepository;
 import com.kanban.kanbanlab.dataAccess.abstracts.UserRepository;
 import com.kanban.kanbanlab.entities.concretes.Card;
+import com.kanban.kanbanlab.entities.concretes.Role;
 import com.kanban.kanbanlab.entities.concretes.User;
+import com.kanban.kanbanlab.entities.dto.SignUpDto;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -13,7 +17,13 @@ import java.util.List;
 
 @Service
 public class UserManager implements UserService {
+    @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private  RoleRepository roleRepository;
+    @Autowired
+    private  PasswordEncoder encoder;
+
     @Autowired
     public UserManager(UserRepository userRepository, RoleRepository roleRepository) {
         this.userRepository = userRepository;
@@ -63,7 +73,19 @@ public class UserManager implements UserService {
     public User getById(int id) { return userRepository.getById(id); }
 
     @Override
-    public void add(User user) {
+    public void add(SignUpDto signUpDto) {
+
+        Role role = roleRepository.findByRole("user");
+        if (role == null)
+            role = roleRepository.save(new Role("user"));
+
+        User user = new User();
+        user.setName(signUpDto.getName());
+        user.setSurname(signUpDto.getSurname());
+        user.setEmail(signUpDto.getEmail());
+        user.setPassword(encoder.encode(signUpDto.getPassword()));
+        user.setRole(role);
+
         userRepository.save(user);
     }
 
